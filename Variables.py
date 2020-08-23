@@ -4,6 +4,7 @@ home = "home"
 
 infectionRate = 0.3
 
+moving_index = random.randint(1,6)
 minPeople = 50
 maxPeople = 200
 amountOfPeople = random.randint(minPeople,maxPeople)
@@ -34,10 +35,11 @@ class Person():
         self.age = age
         self.position = home
         self.infected = infected
+        self.moving = False
 
     def moved(self):
-        random.shuffle(places)
-        self.position = places[0]
+        self.moving =  True
+        self.position = places[moving_index]
 
     
     def isInfected(self):

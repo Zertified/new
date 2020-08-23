@@ -9,6 +9,7 @@ deadcount = 0
 recovered_count = 0
 check_wear_masks = random.randint(v.min_prob_masks,v.max_prob_masks)
 
+prob_of_moving = random.randint(1,2)
 
 population = []
 
@@ -31,6 +32,13 @@ for day in range(v.days):
                     v.infectionRate * 5
                     if person.position == v.home:
                         v.infectionRate = 0
+                elif prob_of_moving == 1:
+                    person.moving = False
+                elif prob_of_moving == 2:
+                    person.moved()
+                
+
+
             
             for place in v.places[1:]:
                 for person in person.places:
